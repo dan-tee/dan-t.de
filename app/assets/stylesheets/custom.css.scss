@@ -1,0 +1,27 @@
+$brand-primary: #2D3E6E;
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  padding-top: 50px;  // Account for fixed navbar
+}
+
+.grey-background {
+  background-color: #fff;
+}
+
+.article{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px; // this is the minimum size before collapsing to one column
+}
+
+.centered-sm-leftaligned {
+  text-align: center;
+  @media (min-width: $screen-sm-min) {
+    text-align: left;
+  }
+}
