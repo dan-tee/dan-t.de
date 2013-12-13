@@ -1,6 +1,9 @@
 DanTDe::Application.routes.draw do
   root 'main_pages#home'
 
+  get 'about' => 'main_pages#about'
+  get 'contact' => 'main_pages#contact'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

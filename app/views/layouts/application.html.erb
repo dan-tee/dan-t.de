@@ -13,8 +13,11 @@
 <body class="grey-background">
 <%= render 'layouts/navigation_header' %>
 
-<%= yield %>
+<main id="main" class="container">
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+</main>
 
-<%= render 'layouts/footer' %>
+
 </body>
 </html>

@@ -1,4 +1,4 @@
-<header class="navbar navbar-fixed-top navbar-inverse" id="main-header" role="banner">
+<header class="navbar navbar-fixed-top navbar-inverse" id="main-header">
     <div class="container">
         <div class="navbar-header">
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#main-navbar">
@@ -7,27 +7,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Daniel Thomas</a>
+            <%= link_to 'Daniel Thomas', root_path, class: 'navbar-brand' %>
         </div>
-        <nav class="collapse navbar-collapse" id="main-navbar" role="navigation">
+        <nav class="collapse navbar-collapse" id="main-navbar">
             <ul class="nav navbar-nav">
                 <!-- insert code to add class="active" to current page -->
-                <li> <a href='#'>Blog</a> </li>
-                <li> <a href='#'>Contact</a> </li>
-                <li> <a href='#'>About</a> </li>
-                <!--li class="drop-down">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Overview</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Entry 1</a></li>
-                        <li><a href="#">Entry 2</a></li>
-                        <li><a href="#">Entry 3</a></li>
-                        <li><a href="#">Entry 4</a></li>
-                        <li><a href="#">Entry 5</a></li>
-                        <li><a href="#">Entry 6</a></li>
-                    </ul>
-                </li-->
+                <li> <%= link_to 'Blog', root_path %> </li>
+                <li> <%= link_to 'Contact', contact_path %> </li>
+                <li> <%= link_to 'About', about_path %> </li>
             </ul>
         </nav>
     </div>

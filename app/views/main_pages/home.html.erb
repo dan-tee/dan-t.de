@@ -1,32 +1,13 @@
 <main id="home-jumbotron" class="container">
-    <div class="row">
-        <div class="col-xs-12  col-sm-5">
-            <%= image_tag 'portrait_small.jpeg', id: 'portrait', class: 'img-responsive img-rounded' %>
-        </div>
-        <div class="col-xs-12 col-sm-7">
-            <h1 class="centered-sm-left-aligned">
-                Daniel Thomas
-            </h1>
-            <p class="centered-sm-left-aligned">
-                I'm a freelance software engineer and mathematician <br/>
-                with interests in Ruby on Rails, data science, <br/>
-                statistics and financial mathematics. <br/>
-                I'm based in Berlin, Germany.
-            </p>
-        </div>
-    </div>
+    <%= render 'about_me' %>
     <div class="row" id="big-buttons">
         <!-- the clearfixes force breaks for mobile display-->
-        <a href="#" class="btn btn-outline-inverse btn-lg">Read my blog</a>
+        <%= link_to 'Read my blog', root_path, class: 'btn btn-outline-inverse btn-lg' %>
         <div class="clearfix visible-xs"></div>
-        <a href="#" class="btn btn-outline-inverse btn-lg">Contact me</a>
+        <%= link_to 'Contact me', contact_path, class: 'btn btn-outline-inverse btn-lg' %>
         <div class="clearfix visible-xs"></div>
-        <a href="#" class="btn btn-outline-inverse btn-lg">About me</a>
+        <%= link_to 'More about me', about_path, class: 'btn btn-outline-inverse btn-lg' %>
     </div>
 </main>
-
-
-
-
 
 

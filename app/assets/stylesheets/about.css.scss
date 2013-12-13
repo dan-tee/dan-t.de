@@ -1,0 +1,54 @@
+#about-main {
+  padding-top: 10px;
+
+  #portrait {
+    margin-top: 10px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include make-sm-column(4);
+    @media (min-width: $screen-sm-min){
+      margin-top: 30px;
+    }
+  }
+
+  #self-short {
+    @include make-xs-column(12);
+    @include make-sm-column(8);
+
+    h1 {
+      @include centered-sm-left;
+      margin-top: 20px;
+      margin-bottom: 5px;
+      font-size: 40px;
+      line-height: 1;
+      //font-family: arial, sans-serif;
+      color: $brand-primary;
+    }
+
+    p {
+      @include centered-sm-left;
+      font-size: 15px;
+      line-height: 1.2;
+    }
+
+    @media (min-width: $screen-sm-min){
+      br {
+        display: none !important;
+        visibility: hidden !important;
+      }
+    }
+  }
+
+  h2 {
+    margin-top: 30px;
+    font-size: 35px;
+    line-height: 1;
+    color: $brand-primary;
+  }
+
+  hr {
+    margin: 10px;
+  }
+}
