@@ -1,6 +1,7 @@
 $brand-primary: #2D3E6E;
 
 body {
+  background-color: #fff;
   padding-top: 50px;  // Account for fixed navbar
 }
 
@@ -25,6 +26,10 @@ body {
       color: #fff;
     }
   }
+}
+
+h1 {
+  color: $brand-primary;
 }
 
 footer {
