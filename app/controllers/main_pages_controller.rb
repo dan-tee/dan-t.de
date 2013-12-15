@@ -4,6 +4,7 @@ class MainPagesController < ApplicationController
   end
 
   def contact
+    @message = PrivateMessage.new
   end
 
   def about

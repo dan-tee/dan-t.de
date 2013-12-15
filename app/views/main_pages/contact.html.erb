@@ -4,40 +4,46 @@
     </h1>
     <p>
         If you have a project to discuss or a suggestion to
-        make this site better, I'd be happy, if you get in touch with me.
+        make this site better, I'd be happy if you get in touch with me.
         Drop me a mail or use the contact form below. Feel free to contact me in german as well.
     </p>
     <p id="mail-label">
         <span>My mail address: </span><%= image_tag 'mail_address.png', id: 'mail-address' %>
     </p>
 
-    <form class="form-horizontal well">
-        <div class="form-group">
-            <label for="inputName" class="col-sm-3 control-label">Your Name</label>
+    <%= form_for @message, html: { class: 'form-horizontal well' } do |f| %>
+        <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+        <% end %>
+
+        <div class="form-group <%= 'has-error' if @message.errors.has_key?(:name) %>">
+            <%= f.label :name, nil, class: 'col-sm-3 control-label' %>
             <div class="col-sm-9">
-                <input type="text" class="form-control" id="inputName" placeholder="Name">
+                <%= f.text_field :name, class: 'col-sm-9 form-control' %>
             </div>
         </div>
-        <div class="form-group">
-            <label for="inputEmail" class="col-sm-3 control-label">Email</label>
+        <div class="form-group <%= 'has-error' if @message.errors.has_key?(:email) %>">
+            <%= f.label :email, nil, class: 'col-sm-3 control-label' %>
             <div class="col-sm-9">
-                <input type="email" class="form-control" id="inputEmail" placeholder="Email (optional)">
+                <%= f.text_field :email, class: 'col-sm-9 form-control',
+                                         placeholder: 'optional',
+                                         onclick: ''%>
             </div>
-            <span class="help-block col-sm-9 col-sm-offset-3">
+            <span id="mail-disclaimer" class="help-block col-sm-9 col-sm-offset-3 small">
                 Your mail address will not be displayed in public. If you dont't leave one,
                 I might not be able to answer you.
             </span>
         </div>
-        <div class="form-group">
-            <label for="inputMessage" class="col-sm-3 control-label">Message</label>
+        <div class="form-group <%= 'has-error' if @message.errors.has_key?(:message) %>">
+            <%= f.label :message, nil, class: 'col-sm-3 control-label' %>
             <div class="col-sm-9">
-                <textarea id="inputMessage" class="form-control" rows="3"></textarea>
+                <%= f.text_area :message, class: 'col-sm-9 form-control' %>
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-9">
-                <button type="submit" class="btn btn-default">Send</button>
+                <%= f.submit 'Send', class: 'btn btn-default' %>
             </div>
         </div>
-    </form>
+    <% end %>
 </div>

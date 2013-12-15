@@ -1,6 +1,8 @@
 DanTDe::Application.routes.draw do
   root 'main_pages#home'
 
+  resources :private_messages
+
   get 'about' => 'main_pages#about'
   get 'contact' => 'main_pages#contact'
 
