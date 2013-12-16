@@ -3,8 +3,10 @@ DanTDe::Application.routes.draw do
 
   resources :private_messages
 
-  get 'about' => 'main_pages#about'
+  get 'discuss' => 'main_pages#discuss'
   get 'contact' => 'main_pages#contact'
+  get 'about' => 'main_pages#about'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
