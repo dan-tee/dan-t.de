@@ -1,4 +1,8 @@
 set :application, 'dan-t.de'
+
+# remote repository name
+set :repository, 'origin'
+# repository url
 set :repo_url, '/usr/local/share/git/dan-t.de.git'
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
@@ -26,6 +30,9 @@ set I18n.enforce_available_locales, true
 # set :keep_releases, 5
 
 namespace :deploy do
+
+  before :deploy, :check_write_permissions
+  before :deploy, :git_push
 
   task :start do
     restart

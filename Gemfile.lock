@@ -214,7 +214,6 @@ DEPENDENCIES
   capybara
   childprocess
   coffee-rails (~> 4.0.0)
-  execjs
   guard-rspec
   guard-spork
   jbuilder (~> 1.2)
