@@ -8,6 +8,9 @@ end
 group :development do
   # Use Capistrano for deployment
   gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv'
 end
 
 group :development,:test do
@@ -58,8 +61,6 @@ gem 'bootstrap-sass', '~>3.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'
-
-
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
