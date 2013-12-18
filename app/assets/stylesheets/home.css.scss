@@ -1,37 +1,37 @@
 #home-jumbotron{
-    padding-top: 40px;
+    padding-top: 50px;
 
   #portrait {
     img{
       display: block;
       margin-left: auto;
       margin-right: auto;
-      width: 230px;
+      width: 280px;
     }
   }
 
   #self-short {
     h1{
-      margin-top: 50px;
+      margin-top: 60px;
       text-align:center;
-      font-size: 55px;
+      font-size: 65px;
       line-height: 1;
       font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     }
 
     p {
       text-align:center;
-      font-size: 18px;
+      font-size: 20px;
       line-height: 1.2;
       font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     }
   }
 
   #linkdiv{
-    margin-top: 50px;
+    margin-top: 60px;
     text-align: center;
     a {
-      font-size: 25px;
+      font-size: 28px;
       font-weight: bold;
       color: $brand-primary;
       font-family: "Times New Roman";
