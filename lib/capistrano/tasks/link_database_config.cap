@@ -1,0 +1,12 @@
+desc 'Create link to shared database.yml'
+task :link_database_config do
+  on roles(:db) do
+    shared_config = "#{shared_path}/config/database.yml"
+
+    if test("[ -f #{shared_config} ]", nil)
+      execute "ln -nfs #{shared_config} #{release_path}/config/database.yml"
+    else
+      raise "Shared config file #{shared_config} does not exist"
+    end
+  end
+end

@@ -221,6 +221,7 @@ DEPENDENCIES
   libnotify
   mysql2
   rails (= 4.0.1)
+  rake
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc

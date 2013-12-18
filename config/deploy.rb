@@ -7,7 +7,7 @@ set :repo_url, '/usr/local/share/git/dan-t.de.git'
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
-set :deploy_to, '/usr/local/share/dantde'
+set :deploy_to, '/usr/local/share/dan-t.de'
 set :scm, :git
 set :git_shallow_clone, 1
 
@@ -34,9 +34,8 @@ namespace :deploy do
   before :deploy, :check_write_permissions
   before :deploy, :git_push
 
-  task :start do
-    restart
-  end
+  after 'deploy:updating', 'link_database_config'
+  after :finishing, 'deploy:cleanup'
 
   desc 'Restart application'
   task :restart do
@@ -46,15 +45,9 @@ namespace :deploy do
     end
   end
 
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
+  [:start, :stop].each do |t|
+    desc "#{t} does nothing for passenger"
+    task t
+      on roles :app do ; end
   end
-
-  after :finishing, 'deploy:cleanup'
-
 end
