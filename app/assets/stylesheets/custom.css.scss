@@ -3,6 +3,7 @@ $brand-primary: #2D3E6E;
 body {
   background-color: #fff;
   padding-top: 50px;  // Account for fixed navbar
+  font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
 }
 
 @mixin centered-sm-left {

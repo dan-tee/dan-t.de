@@ -1,39 +1,31 @@
 #about-main {
   #portrait {
     margin-top: 10px;
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
+    img{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80px;
+    }
 
-    @include make-sm-column(4);
     @media (min-width: $screen-sm-min){
       margin-top: 30px;
     }
   }
 
   #self-short {
-    @include make-xs-column(12);
-    @include make-sm-column(8);
-
     h1 {
-      @include centered-sm-left;
       margin-top: 20px;
       margin-bottom: 5px;
+      text-align: center;
       font-size: 40px;
       line-height: 1;
     }
 
     p {
-      @include centered-sm-left;
       font-size: 15px;
+      text-align: center;
       line-height: 1.2;
-    }
-
-    @media (min-width: $screen-sm-min){
-      br {
-        display: none !important;
-        visibility: hidden !important;
-      }
     }
   }
 

@@ -1,14 +1,8 @@
 <main id="home-jumbotron" class="container">
 
     <%= render 'about_me' %>
-
-    <div class="row" id="big-buttons">
-        <!-- the clearfixes force breaks for mobile display-->
-        <%= link_to 'Discuss', discuss_path , class: 'btn btn-outline-inverse btn-lg' %>
-        <div class="clearfix visible-xs"></div>
-        <%= link_to 'Contact me', contact_path, class: 'btn btn-outline-inverse btn-lg' %>
-        <div class="clearfix visible-xs"></div>
-        <%= link_to 'More about me', about_path, class: 'btn btn-outline-inverse btn-lg' %>
+    <div id="linkdiv">
+        <%= link_to 'CV', about_path %>
     </div>
 </main>
 

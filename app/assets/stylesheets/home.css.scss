@@ -1,56 +1,48 @@
 #home-jumbotron{
-  padding-top: 27px;
-  @media (min-width: $screen-sm-min){
-    padding: 150px 0 0 0;
-  }
+    padding-top: 40px;
 
   #portrait {
-    @include make-sm-column(5);
-
     img{
+      display: block;
       margin-left: auto;
       margin-right: auto;
+      width: 150px;
     }
   }
 
   #self-short {
-    @include make-sm-column(7);
-
     h1{
-      @include centered-sm-left;
-      margin-top: 25px;
-      margin-bottom: 0;
+      margin-top: 30px;
+      text-align:center;
       font-size: 50px;
       line-height: 1;
-      font-family: arial, sans-serif;
+      font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     }
 
     p {
-      @include centered-sm-left;
+      text-align:center;
       font-size: 18px;
       line-height: 1.2;
+      font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     }
   }
 
-  // div containing the buttons
-  #big-buttons{
+  #linkdiv{
+    margin-top: 60px;
     text-align: center;
-    margin: 20px;
-    @media (min-width: $screen-sm-min){
-      margin-top: 150px;
-    }
-  }
-
-  .btn-outline-inverse {
-    margin: 10px;
-    font-size: 30px;
-    color: $brand-primary;
-    font-family: arial, sans-serif;
-    border: 1px solid $navbar-inverse-bg;
-    &:hover {
-      background-color: $brand-primary;
-      border: 1px solid $body-bg;
-      color: $body-bg;
+    a {
+      font-size: 35px;
+      color: $brand-primary;
+      font-family: "Times New Roman";
+      padding: 12px;
+      border: 3px solid $brand-primary;
+      border-radius: 50%;
+      &:hover {
+        background-color: $brand-primary;
+        border: 3px solid $brand-primary;
+        color: $body-bg;
+        text-decoration: none;
+      }
     }
   }
 }
