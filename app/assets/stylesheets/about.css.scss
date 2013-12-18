@@ -5,11 +5,7 @@
       display: block;
       margin-left: auto;
       margin-right: auto;
-      width: 80px;
-    }
-
-    @media (min-width: $screen-sm-min){
-      margin-top: 30px;
+      width: 100px;
     }
   }
 
@@ -18,14 +14,16 @@
       margin-top: 20px;
       margin-bottom: 5px;
       text-align: center;
-      font-size: 40px;
+      font-size: 50px;
       line-height: 1;
+      font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     }
 
     p {
-      font-size: 15px;
+      font-size: 18px;
       text-align: center;
       line-height: 1.2;
+      font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     }
   }
 
