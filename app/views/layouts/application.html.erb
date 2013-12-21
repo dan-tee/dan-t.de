@@ -13,14 +13,16 @@
 </head>
 
 <body class="grey-background">
+
 <%= render 'layouts/navigation_header' %>
 
-<main id="main" class="container">
+<main class="container">
+
     <%= yield %>
 
     <%= render 'layouts/footer' %>
-</main>
 
+</main>
 
 </body>
 </html>

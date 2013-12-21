@@ -1,4 +1,5 @@
 $brand-primary: #2D3E6E;
+$content-width: 600px;
 
 body {
   background-color: #fff;
@@ -7,15 +8,8 @@ body {
   font-size: 16px;
 }
 
-@mixin centered-sm-left {
-  text-align: center;
-  @media (min-width: $screen-sm-min) {
-    text-align: left;
-  }
-}
-
 // center in the middle
-#main {
+main {
   margin-top: 10px;
   @media (min-width: $screen-sm-min){
     margin-top: 20px;
@@ -23,26 +17,19 @@ body {
 
   margin-left: auto;
   margin-right: auto;
-  max-width: 600px; // this is the minimum size before collapsing to one column
+  max-width: $content-width; // this is the minimum size before collapsing to one column
 }
 
-#main-header {
-  a {
-    color: #ccc;
-    &:hover {
-      color: #fff;
-    }
-  }
+footer {
+  margin-top: 50px;
+  font-size: 12px;
 }
 
 h1 {
   color: $brand-primary;
 }
 
-footer {
-  margin-top: 50px;
-}
-
+// for debugging purposes
 .red-border {
   border: 1px solid darkred;
 }

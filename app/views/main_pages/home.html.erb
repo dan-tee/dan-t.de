@@ -1,9 +1,11 @@
-<main id="home-jumbotron" class="container">
+<% provide(:current_path, root_path) %>
+
+<div id="home-jumbotron">
 
     <%= render 'about_me' %>
     <div id="linkdiv">
         <%= link_to 'CV', about_path %>
     </div>
-</main>
+</div>
 
 
