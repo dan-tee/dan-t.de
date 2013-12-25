@@ -1,4 +1,6 @@
 class PrivateMessagesController < ApplicationController
+  before_action :redirect_non_admin,   only: :index
+
   def new
   end
 
@@ -15,6 +17,7 @@ class PrivateMessagesController < ApplicationController
   end
 
   def index
+    @messages = PrivateMessage.all
   end
 
   private

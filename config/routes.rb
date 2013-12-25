@@ -7,6 +7,9 @@ DanTDe::Application.routes.draw do
   get 'contact' => 'main_pages#contact'
   get 'about' => 'main_pages#about'
 
+  get 'login' => 'admins#new'
+  get 'logout' => 'admins#destroy'
+  match 'login', to: 'admins#create', via: 'post'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

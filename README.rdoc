@@ -1,5 +1,10 @@
 == README
 
+On first deploy you have to create a database.yml file containing your DB configuration
+and a admin_password file containing the bcrypt hash of the admin password.
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

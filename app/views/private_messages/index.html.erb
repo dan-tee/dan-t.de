@@ -1,0 +1,12 @@
+<div id="message-view">
+    <h1>Private messages view</h1>
+
+     <% @messages.each do |message| %>
+        <span> <%= message.name %> </span>
+        <span> <%=message.created_at %> </span>
+        <span> <%=message.email %> </span>
+        <p>
+            <%= message.message %>
+        </p>
+     <% end %>
+</div>

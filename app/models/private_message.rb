@@ -6,4 +6,6 @@ class PrivateMessage < ActiveRecord::Base
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
   validates :message, presence: true, length: { maximum: 10000 }
 
+  default_scope -> { order('created_at DESC') }
+
 end
