@@ -8,4 +8,5 @@ class PrivateMessage < ActiveRecord::Base
 
   default_scope -> { order('created_at DESC') }
 
+  scope :not_archived, -> { where(archived: false) }
 end

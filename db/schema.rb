@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131224155717) do
+ActiveRecord::Schema.define(version: 20131226130053) do
 
   create_table "admins", force: true do |t|
     t.string   "admin_token"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20131224155717) do
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "archived",   default: false
   end
 
 end

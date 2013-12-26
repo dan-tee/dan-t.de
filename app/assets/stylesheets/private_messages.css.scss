@@ -1,3 +1,30 @@
 // Place all the styles related to the private_messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#message-view {
+  #name {
+    font-weight: bold;
+  }
+
+  #email {
+    margin-left: 20px;
+  }
+
+  #time-ago {
+    float: right;
+    font-size: 12px;
+  }
+
+  .button_to{
+    float: right;
+
+    button {
+    float: right;
+    margin-left: 10px;
+
+
+    background:none;
+    border:none;
+    padding:0;
+  }  }
+}

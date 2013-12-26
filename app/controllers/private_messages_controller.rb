@@ -1,5 +1,5 @@
 class PrivateMessagesController < ApplicationController
-  before_action :redirect_non_admin,   only: :index
+  before_action :redirect_non_admin,   only: [:index, :destroy]
 
   def new
   end
@@ -13,11 +13,19 @@ class PrivateMessagesController < ApplicationController
       flash.now[:danger] = 'Message could not be sent'
     end
 
-    render 'main_pages/contact'
+    render contact_path
   end
 
   def index
-    @messages = PrivateMessage.all
+    @messages = PrivateMessage.not_archived
+  end
+
+  def destroy
+    message = PrivateMessage.find(params[:id])
+    message.update_attribute(:archived, true)
+
+    flash[:success] = 'Message moved to archive'
+    redirect_to private_messages_path
   end
 
   private

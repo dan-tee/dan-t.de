@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="4269268376">
-    <data-source source="LOCAL" name="Rails dan-t.de: development" uuid="bdfcbe50-e16d-4721-894a-25ce172f084f">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
-      <libraries />
-    </data-source>
-    <data-source source="LOCAL" name="SQLite -DEV" uuid="d6ca9f9e-cc85-4914-ac86-b82a22d2b636">
-      <driver-ref>sqlite.xerial</driver-ref>
+  <component name="DataSourceManagerImpl" format="xml" hash="3560543301">
+    <data-source source="LOCAL" name="dan-t.de - dev" uuid="e91f9298-d870-4ed8-bb1a-2ec26fe17db6">
+      <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
-      <schema-pattern>*</schema-pattern>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/dantde_dev</jdbc-url>
+      <user-name>dantde</user-name>
+      <user-password>dfc1dfd2dfc9dfd0dfdddfd3dfc9dfc5dfc0dfccdfcbdfd8dfd3dfcfdfc1dfcbdfcddfc1dfccdfc9dfc4dfcedfdcdfcbdfc4dfd2dfc7dfdc</user-password>
+      <driver-properties>
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+      </driver-properties>
       <libraries />
     </data-source>
   </component>
