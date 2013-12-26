@@ -1,8 +1,12 @@
 <% provide(:current_path, root_path) %>
 
 <div id="home-jumbotron">
+    <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+    <% end %>
 
     <%= render 'about_me' %>
+
     <div id="linkdiv">
         <%= link_to 'CV', about_path %>
     </div>
