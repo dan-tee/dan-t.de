@@ -4,6 +4,8 @@ require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
+# suppression because IDEA mixes up the Bundler.require with Kernel.require
+# noinspection RubyArgCount
 Bundler.require(:default, Rails.env)
 
 module DanTDe
