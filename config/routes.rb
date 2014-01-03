@@ -1,10 +1,10 @@
 DanTDe::Application.routes.draw do
   root 'main_pages#home'
 
-  resources :private_messages,  only: [:new, :create, :index, :destroy]
+  resources :private_messages,  only: [:create, :index, :destroy]
+  get 'contact' => 'private_messages#new'
 
   get 'discuss' => 'main_pages#discuss'
-  get 'contact' => 'main_pages#contact'
   get 'about' => 'main_pages#about'
 
   get 'login' => 'admins#new'

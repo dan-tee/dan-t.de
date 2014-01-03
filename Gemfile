@@ -11,20 +11,17 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'capistrano-rbenv'
-end
 
-group :development,:test do
-  gem 'rspec-rails'
-  gem 'guard-rspec'
   gem 'spork-rails'
   gem 'guard-spork'
   gem 'libnotify'
   gem 'childprocess'
 end
 
-group :test do
-  # web acceptance tests using an internal browser
-  gem 'capybara'
+group :development, :test do
+  gem 'minitest-rails-capybara'
+  gem 'minitest-colorize'
+  gem 'minitest-reporters'
 end
 
 # Use mysql as the database for Active Record

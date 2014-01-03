@@ -5,10 +5,6 @@ class MainPagesController < ApplicationController
   def discuss
   end
 
-  def contact
-    @message = PrivateMessage.new
-  end
-
   def about
   end
 end
