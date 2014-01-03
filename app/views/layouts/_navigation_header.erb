@@ -13,7 +13,7 @@
             <div class="collapse navbar-collapse" id="main-navbar">
                 <ul class="nav navbar-nav">
                     <!-- insert code to add class="active" to current page -->
-                    <li class = <%= raw(tab_active(about_path, yield(:current_path))) %>> <%= link_to 'CV', about_path %> </li>
+                    <li class = <%= raw(tab_active(cv_path, yield(:current_path))) %>> <%= link_to 'CV', cv_path %> </li>
                     <li class = <%= raw(tab_active(contact_path, yield(:current_path))) %>> <%= link_to 'Contact', contact_path %> </li>
                     <li class = <%= raw(tab_active(discuss_path, yield(:current_path))) %>> <%= link_to 'Discuss', discuss_path %> </li>
                 </ul>

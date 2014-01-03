@@ -5,7 +5,7 @@ DanTDe::Application.routes.draw do
   get 'contact' => 'private_messages#new'
 
   get 'discuss' => 'main_pages#discuss'
-  get 'about' => 'main_pages#about'
+  get 'cv' => 'main_pages#cv'
 
   get 'login' => 'admins#new'
   get 'logout' => 'admins#destroy'

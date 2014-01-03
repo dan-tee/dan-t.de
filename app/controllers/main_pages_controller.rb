@@ -5,6 +5,6 @@ class MainPagesController < ApplicationController
   def discuss
   end
 
-  def about
+  def cv
   end
 end

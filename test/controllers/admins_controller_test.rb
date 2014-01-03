@@ -7,7 +7,7 @@ class AdminsControllerTest < ActionController::TestCase
     assert_redirected_to root_path
   end
 
-  test 'login doesnt redirect non admin' do
+  test "login doesn't redirect non admin" do
     get :new
     assert_select 'title', 'Login'
   end

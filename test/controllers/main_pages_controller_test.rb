@@ -7,8 +7,7 @@ class MainPagesControllerTest < ActionController::TestCase
   end
 
   test 'should get about' do
-    get :about
+    get :cv
     assert_response :success
   end
-
 end
