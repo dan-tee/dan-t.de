@@ -20,13 +20,4 @@ class AdminsController < ApplicationController
     flash[:success] = 'Logout successful'
     redirect_to root_path
   end
-
-  private
-
-    def check_password(password)
-      path = File.join(Rails.root, 'config', '.admin_password')
-      admin_hash = File.read(path).strip
-      given_hash = Digest::SHA1.hexdigest(password + DanTDe::Application.config.secret_key_base)
-      admin_hash == given_hash
-    end
 end
