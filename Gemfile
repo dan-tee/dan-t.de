@@ -12,8 +12,9 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rbenv'
 
-  gem 'spork-rails'
-  gem 'guard-spork'
+  gem 'guard'
+  gem 'guard-minitest'
+  gem 'guard-spring'
   gem 'libnotify'
   gem 'childprocess'
 end
