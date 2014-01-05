@@ -1,14 +1,14 @@
 DanTDe::Application.routes.draw do
   root 'main_pages#home'
 
-  resources :private_messages,  only: [:create, :index, :destroy]
+  resources :private_messages,  only: [:create, :index, :update]
   get 'contact' => 'private_messages#new'
 
   get 'discuss' => 'main_pages#discuss'
   get 'cv' => 'main_pages#cv'
 
   get 'login' => 'admins#new'
-  get 'logout' => 'admins#destroy'
+  match 'logout' => 'admins#destroy', via: 'delete'
   match 'login', to: 'admins#create', via: 'post'
 
   # The priority is based upon order of creation: first created -> highest priority.

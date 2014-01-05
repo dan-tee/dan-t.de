@@ -7,13 +7,13 @@
     <h1>Private messages view</h1>
 
      <% @messages.each do |message| %>
-        <span id="name"> <%= message.name %> </span>
-        <span id="email"> <%=message.email %> </span>
-        <%= button_to private_message_path(message), method: :delete, class: 'btn-xs' do %>
+        <span class="name"> <%= message.name %> </span>
+        <span class="email"> <%=message.email %> </span>
+        <%= button_to private_message_path(message), method: :patch, class: 'btn-xs' do %>
             <span class="glyphicon glyphicon-trash"></span>
         <% end %>
-        <span id="time-ago"> <%=time_ago_in_words(message.created_at) %> ago </span>
-        <p id="message">
+        <span class="time-ago"> <%=time_ago_in_words(message.created_at) %> ago </span>
+        <p class="message">
             <%= message.message %>
         </p>
         <hr/>

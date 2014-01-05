@@ -2,15 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #message-view {
-  #name {
+  .name {
     font-weight: bold;
   }
 
-  #email {
+  .email {
     margin-left: 20px;
   }
 
-  #time-ago {
+  .time-ago {
     float: right;
     font-size: 12px;
   }

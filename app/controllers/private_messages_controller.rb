@@ -1,5 +1,5 @@
 class PrivateMessagesController < ApplicationController
-  before_action :redirect_non_admin,   only: [:index, :destroy]
+  before_action :redirect_non_admin,   only: [:index, :update]
 
   def new
     @message = PrivateMessage.new
@@ -22,7 +22,7 @@ class PrivateMessagesController < ApplicationController
   end
 
   #should maybe better use update to be RESTful
-  def destroy
+  def update
     message = PrivateMessage.find(params[:id])
     message.update_attribute(:archived, true)
 

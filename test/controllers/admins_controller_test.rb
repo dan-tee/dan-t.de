@@ -19,7 +19,7 @@ class AdminsControllerTest < ActionController::TestCase
 
   test 'logout for admin' do
     @controller.make_admin!
-    get :destroy
+    delete :destroy
     assert_redirected_to root_path
     assert !@controller.admin?
   end
