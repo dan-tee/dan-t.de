@@ -13,6 +13,7 @@ guard :minitest, :minitest_env => { 'RAILS_ENV' => 'test' } do
   watch(%r{^app/views/(.+)_mailer/.+})                   { |m| "test/mailers/#{m[1]}_mailer_test.rb" }
   watch(%r{^lib/(.+)\.rb})                               { |m| "test/lib/#{m[1]}_test.rb" }
   watch(%r{^test/.+_test\.rb})
+  watch(%r{^app/views(.*)\/?(.*)\.erb})                  { 'test/features' }
 end
 
 guard 'spring' do

@@ -1,4 +1,5 @@
 class MainPagesController < ApplicationController
+
   def home
   end
 
@@ -7,4 +8,5 @@ class MainPagesController < ApplicationController
 
   def cv
   end
+
 end

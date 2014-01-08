@@ -48,10 +48,11 @@ class NavigationTest < Capybara::Rails::TestCase
   test 'admin link for admins' do
       login!
       visit root_path
-
-      assert_select "title", "Welcome"
-      #assert_select 'a', { text: 'Admin ' }
+      page.assert_selector('li', text: 'Admin', visible: true)
   end
 
-  # assert_select 'a', { text: 'Admin', count: 0 }
+  test 'admin link for non admins' do
+    visit root_path
+    page.assert_selector('li', text: 'Admin', count: 0)
+  end
 end

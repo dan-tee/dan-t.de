@@ -4,4 +4,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   include Authorization
+
+  before_action :set_is_admin!
+
+  private
+
+    def set_is_admin!
+      @is_admin = admin?
+    end
+
 end
