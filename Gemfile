@@ -22,7 +22,7 @@ end
 group :development, :test do
   gem 'minitest-rails-capybara'
   gem 'minitest-colorize'
-  #gem 'minitest-reporters'
+  gem 'minitest-reporters'
 end
 
 # Use mysql as the database for Active Record
