@@ -1,0 +1,35 @@
+desc 'Create link to shared .admin_password'
+task :link_admin_password_file do
+  on roles(:app) do
+    shared_password_file = "#{shared_path}/config/.admin_password"
+    link_path = "#{release_path}/config/.admin_password"
+    link_file link_path, shared_password_file
+  end
+end
+
+desc 'Create link to shared database.yml'
+task :link_database_config do
+  on roles(:db) do
+    shared_config = "#{shared_path}/config/database.yml"
+    link_path = "#{release_path}/config/database.yml"
+    link_file link_path, shared_config
+  end
+end
+
+desc 'Create link to .secret'
+task :link_dot_secret do
+  on roles(:app) do
+    shared_config = "#{shared_path}/config/.secret"
+    link_path = "#{release_path}/config/.secret"
+    link_file link_path, shared_config
+  end
+end
+
+private
+  def link_file(link_path, file_path)
+    if test("[ -f #{file_path} ]", nil)
+      execute "ln -nfs #{file_path} #{link_path}"
+    else
+      raise "Shared config file #{file_path} does not exist"
+    end
+  end
