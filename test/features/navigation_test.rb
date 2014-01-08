@@ -1,6 +1,10 @@
 require 'test_helper'
+require 'support/session_helper'
+require_relative '../../app/controllers/authorization'
 
 class NavigationTest < Capybara::Rails::TestCase
+  include Authorization, SessionHelper
+
   test 'home link' do
     visit contact_path
     within('.navbar') do
@@ -9,7 +13,7 @@ class NavigationTest < Capybara::Rails::TestCase
     assert_equal 'Dan-T', page.title
   end
 
-  test 'Navigation CV link' do
+  test 'navigation CV link' do
     visit root_path
     within('.navbar') do
       click_link 'CV'
@@ -17,7 +21,7 @@ class NavigationTest < Capybara::Rails::TestCase
     assert_equal 'CV', page.title
   end
 
-  test 'Home page CV link' do
+  test 'home page CV link' do
     visit root_path
     within('#linkdiv') do
       click_link 'CV'
@@ -25,7 +29,7 @@ class NavigationTest < Capybara::Rails::TestCase
     assert_equal 'CV', page.title
   end
 
-  test 'Contact link' do
+  test 'contact link' do
     visit root_path
     within('.navbar') do
       click_link 'Contact'
@@ -33,11 +37,21 @@ class NavigationTest < Capybara::Rails::TestCase
     assert_equal 'Contact', page.title
   end
 
-  test 'Discuss link' do
+  test 'discuss link' do
     visit root_path
     within('.navbar') do
       click_link 'Discuss'
     end
     assert_equal 'Discuss', page.title
   end
+
+  test 'admin link for admins' do
+      login!
+      visit root_path
+
+      assert_select "title", "Welcome"
+      #assert_select 'a', { text: 'Admin ' }
+  end
+
+  # assert_select 'a', { text: 'Admin', count: 0 }
 end

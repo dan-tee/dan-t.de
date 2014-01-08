@@ -16,6 +16,12 @@
                     <li class = <%= raw(tab_active(cv_path, yield(:current_path))) %>> <%= link_to 'CV', cv_path %> </li>
                     <li class = <%= raw(tab_active(contact_path, yield(:current_path))) %>> <%= link_to 'Contact', contact_path %> </li>
                     <li class = <%= raw(tab_active(discuss_path, yield(:current_path))) %>> <%= link_to 'Discuss', discuss_path %> </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><%= link_to 'Logout', logout_path, :method => :delete %></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

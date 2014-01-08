@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class PrivateMessagesControllerTest < ActionController::TestCase
+
   test 'get new' do
     get :new
     assert_response :success
@@ -8,13 +9,31 @@ class PrivateMessagesControllerTest < ActionController::TestCase
   end
 
   test 'create message' do
-    name = 'person1'
-    post :create, private_message: { name: name, message: 'hello'}
-    assert PrivateMessage.find_by_name(name)
+    name = 'person'
+    text = 'hello'
+    post :create, private_message: { name: name, message: text}
+    message = PrivateMessage.find_by_name(name)
+    assert_not_nil message
+    assert_equal name, message.name
+    assert_equal text, message.message
+  end
+
+  test 'create message without name' do
+    text = 'hello bla bla'
+    post :create, private_message: { message: text}
+    assert_nil PrivateMessage.find_by_message(text)
+    assert_redirected_to contact_path
+  end
+
+  test 'create message without text' do
+    name = 'person'
+    post :create, private_message: { name: name }
+    assert_nil PrivateMessage.find_by_name(name)
+    assert_redirected_to contact_path
   end
 
   test 'show messages for admin' do
-    name = 'person2'
+    name = 'person'
     message = 'test message'
 
     @controller.make_admin!
@@ -31,7 +50,7 @@ class PrivateMessagesControllerTest < ActionController::TestCase
 
   test 'destroy message for admin' do
     @controller.make_admin!
-    name = 'person3'
+    name = 'person'
     post :create, private_message: { name: name, message: 'to delete'}
     message = PrivateMessage.find_by_name(name)
 
@@ -41,7 +60,7 @@ class PrivateMessagesControllerTest < ActionController::TestCase
   end
 
   test 'destroy message for non admin' do
-    name = 'person3'
+    name = 'person'
     post :create, private_message: { name: name, message: 'to delete'}
     message = PrivateMessage.find_by_name(name)
 

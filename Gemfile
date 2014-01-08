@@ -10,7 +10,7 @@ group :development do
   gem 'capistrano'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
-  gem 'capistrano-rbenv'
+  gem 'capistrano-rbenv', github: 'capistrano/rbenv'
 
   gem 'guard'
   gem 'guard-minitest'
@@ -22,14 +22,14 @@ end
 group :development, :test do
   gem 'minitest-rails-capybara'
   gem 'minitest-colorize'
-  gem 'minitest-reporters'
+  #gem 'minitest-reporters'
 end
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.1'
+gem 'rails', '~> 4.0.2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

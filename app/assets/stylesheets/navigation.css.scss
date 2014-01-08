@@ -1,8 +1,14 @@
 #main-header {
-  a {
+  a, span {
     color: #ccc;
     &:hover {
       color: #fff;
+    }
+  }
+
+  .dropdown-menu {
+    a {
+      color: $navbar-inverse-bg;
     }
   }
 

@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3560543301">
+  <component name="DataSourceManagerImpl" format="xml" hash="1712986711">
     <data-source source="LOCAL" name="dan-t.de - dev" uuid="e91f9298-d870-4ed8-bb1a-2ec26fe17db6">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/dantde_dev</jdbc-url>
+      <user-name>dantde</user-name>
+      <user-password>dfc1dfd2dfc9dfd0dfdddfd3dfc9dfc5dfc0dfccdfcbdfd8dfd3dfcfdfc1dfcbdfcddfc1dfccdfc9dfc4dfcedfdcdfcbdfc4dfd2dfc7dfdc</user-password>
+      <driver-properties>
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+      </driver-properties>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="dan-t.de - test" uuid="ad761574-45b3-4be7-aa38-b3bab5287cc0">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
       <user-name>dantde</user-name>
       <user-password>dfc1dfd2dfc9dfd0dfdddfd3dfc9dfc5dfc0dfccdfcbdfd8dfd3dfcfdfc1dfcbdfcddfc1dfccdfc9dfc4dfcedfdcdfcbdfc4dfd2dfc7dfdc</user-password>
       <driver-properties>
