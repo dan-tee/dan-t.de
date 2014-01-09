@@ -1,7 +1,13 @@
 == README
 
 On first deploy you have to create a database.yml file containing your DB configuration
-and a admin_password file containing the bcrypt hash of the admin password.
+and place in in the shared folder of the deployment.
+
+To set an admin password visit [domian]/password/new .
+
+To keep the secret_token and the password constant for the next deployments,
+copy the .secret and .admin_password from the apps config folder to ../../shared/config.
+
 
 
 

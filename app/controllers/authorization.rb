@@ -1,4 +1,9 @@
+# The hash of the admin password is stored in a file
+# To become admin, a client has to pass the right password
+# and gets an admin cookie in return. This cookie is used
+# to grant admin rights until explicit logout.
 module Authorization
+  @@password_path = File.join(Rails.root, 'config', '.admin_password')
 
   def redirect_non_admin
     unless admin?
@@ -45,14 +50,24 @@ module Authorization
 
   def check_password(password, check_bruteforce = true)
     return false if check_bruteforce && is_bruteforce_attack
+    return false unless password_file_exists?
 
-    path = File.join(Rails.root, 'config', '.admin_password')
-    admin_hash = File.read(path).strip
-    given_hash = Digest::SHA1.hexdigest(password + DanTDe::Application.config.secret_key_base)
-    correct = (admin_hash == given_hash)
+    admin_hash = File.read(@@password_path).strip
+    correct = (admin_hash == password_hash(password))
 
     @alarm_level = 0 if correct
     correct
+  end
+
+  def set_password!(password)
+    return if File.exist? @@password_path
+    password_file = File.new @@password_path, 'w'
+    password_file.puts(password_hash(password))
+    password_file.close
+  end
+
+  def password_file_exists?
+    File.exist? @@password_path
   end
 
   private
@@ -73,5 +88,9 @@ module Authorization
       return false unless @alarm_level
       wait_time = (2 ** @alarm_level).seconds
       @last_attempt + wait_time > Time.now
+    end
+
+    def password_hash(password)
+      Digest::SHA1.hexdigest(password + DanTDe::Application.config.secret_key_base)
     end
 end

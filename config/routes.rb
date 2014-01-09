@@ -2,6 +2,8 @@ DanTDe::Application.routes.draw do
   root 'main_pages#home'
 
   resources :private_messages,  only: [:create, :index, :update]
+  resource :password,          only: [:new, :create]
+
   get 'contact' => 'private_messages#new'
 
   get 'discuss' => 'main_pages#discuss'

@@ -8,5 +8,4 @@ class MainPagesController < ApplicationController
 
   def cv
   end
-
 end

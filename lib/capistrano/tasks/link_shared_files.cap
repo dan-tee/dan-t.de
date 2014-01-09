@@ -12,7 +12,7 @@ task :link_database_config do
   on roles(:db) do
     shared_config = "#{shared_path}/config/database.yml"
     link_path = "#{release_path}/config/database.yml"
-    link_file link_path, shared_config
+    link_file link_path, shared_config, false
   end
 end
 
@@ -21,15 +21,15 @@ task :link_dot_secret do
   on roles(:app) do
     shared_config = "#{shared_path}/config/.secret"
     link_path = "#{release_path}/config/.secret"
-    link_file link_path, shared_config
+    link_file link_path, shared_config, false
   end
 end
 
 private
-  def link_file(link_path, file_path)
+  def link_file(link_path, file_path, raise = true)
     if test("[ -f #{file_path} ]", nil)
       execute "ln -nfs #{file_path} #{link_path}"
-    else
+    elsif raise
       raise "Shared config file #{file_path} does not exist"
     end
   end

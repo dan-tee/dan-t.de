@@ -1,0 +1,26 @@
+<% provide(:title, 'Set Password')%>
+
+<div id="set-password">
+    <h1>Set Password</h1>
+
+    <%= form_tag('/password', class: 'form-horizontal') do %>
+        <div class="form-group">
+            <%= label_tag 'Password', nil, class: 'col-sm-3 control-label' %>
+            <div class="col-sm-9">
+                <%= password_field_tag 'Password', nil, class: 'form-control' %>
+            </div>
+        </div>
+        <div class="form-group">
+            <%= label_tag 'Confirmation', nil, class: 'col-sm-3 control-label' %>
+            <div class="col-sm-9">
+                <%= password_field_tag 'Confirmation', nil, class: 'form-control' %>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+                <%= submit_tag 'Submit', class: 'btn btn-default' %>
+            </div>
+        </div>
+    <% end %>
+</div>
+
