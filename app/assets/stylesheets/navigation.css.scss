@@ -8,7 +8,9 @@
 
   .dropdown-menu {
     a {
-      color: $navbar-inverse-bg;
+      @media (min-width: $screen-sm-min){
+        color: $navbar-inverse-bg;
+      }
     }
   }
 

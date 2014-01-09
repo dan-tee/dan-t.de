@@ -8,10 +8,10 @@ class PrivateMessagesController < ApplicationController
   def create
     @message = PrivateMessage.new(message_params)
     if @message.save
-      flash.now[:success] = 'Message sent successfully'
+      flash[:success] = 'Message sent successfully'
       @message = PrivateMessage.new
     else
-      flash.now[:danger] = 'Message could not be sent'
+      flash[:danger] = 'Message could not be sent'
     end
 
     redirect_to contact_path
