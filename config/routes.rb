@@ -1,4 +1,6 @@
 DanTDe::Application.routes.draw do
+  get "statistics/page_views"
+  get "statistics/aggregated_per_user"
   root 'main_pages#home'
 
   resources :private_messages,  only: [:create, :index, :update]

@@ -93,6 +93,9 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    kaminari (0.15.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     libnotify (0.8.2)
       ffi (>= 1.0.11)
     libv8 (3.16.14.3)
@@ -229,6 +232,7 @@ DEPENDENCIES
   guard-spring
   jbuilder (~> 1.2)
   jquery-rails
+  kaminari
   libnotify
   minitest-colorize
   minitest-rails-capybara

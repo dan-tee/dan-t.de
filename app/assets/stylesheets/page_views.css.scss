@@ -1,0 +1,21 @@
+#page-views {
+  font-size: 14px;
+
+  .pagination {
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+
+  a{
+      color: $brand-primary;
+  }
+
+  .current{
+    color: $brand-primary;
+    font-weight: bolder;
+  }
+
+  th {
+    border-bottom: 1px solid;
+  }
+}

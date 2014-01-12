@@ -10,8 +10,11 @@ module Statistics
     end
 
     page_view = user.page_views.new
-    page_view.url = request.url
-    page_view.format = request.format
+    # first group matches double slash till next slash and is optinal
+    # second group matched everything from the first single slash
+    matches = %r'(//[^/]*)?(/.*)'i.match request.url
+    page_view.page = matches[2]
+    page_view.format = request.format.to_s
     page_view.method = request.method
     page_view.save!
   end
