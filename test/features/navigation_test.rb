@@ -1,9 +1,9 @@
 require 'test_helper'
 require 'support/session_helper'
-require_relative '../../app/controllers/authorization'
+require_relative '../../app/controllers/support/authorization'
 
 class NavigationTest < Capybara::Rails::TestCase
-  include Authorization, SessionHelper
+  include SessionHelper
 
   test 'home link' do
     visit contact_path

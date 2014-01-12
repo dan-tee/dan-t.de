@@ -21,7 +21,6 @@ class PrivateMessagesController < ApplicationController
     @messages = PrivateMessage.not_archived
   end
 
-  #should maybe better use update to be RESTful
   def update
     message = PrivateMessage.find(params[:id])
     message.update_attribute(:archived, true)

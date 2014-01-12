@@ -1,12 +1,18 @@
 require 'test_helper'
-require_relative '../../app/controllers/authorization'
+require_relative '../../../app/controllers/support/authorization'
 
+# this test is an instance of ActionView::TestCase to have cookies available
 class AuthorizationTest < ActionView::TestCase
   include Authorization
+
+  def setup
+    create_user!
+  end
 
   test 'make admin' do
     make_admin!
     assert admin?
+    assert @is_admin
   end
 
   test 'delete admin' do

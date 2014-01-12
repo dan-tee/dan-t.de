@@ -1,6 +1,11 @@
 require 'test_helper'
 
-class AdminsControllerTest < ActionController::TestCase
+class AdminSessionsControllerTest < ActionController::TestCase
+
+  def setup
+    @controller.capture_statistics!
+  end
+
   test 'login for admin' do
     @controller.make_admin!
     get :new
@@ -32,7 +37,7 @@ class AdminsControllerTest < ActionController::TestCase
 
   test 'create with right password' do
     post :create, Password: 'abc'
-    assert @controller.admin?
     assert_redirected_to private_messages_path
+    assert @controller.admin?
   end
 end

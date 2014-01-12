@@ -5,11 +5,11 @@ require 'minitest-rails'
 require 'minitest/rails/capybara'
 require 'minitest/colorize'
 
-#require 'minitest/reporters'
+require 'minitest/reporters'
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
-  #MiniTest::Reporters.use!
+  MiniTest::Reporters.use!
 
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   #

@@ -1,9 +1,13 @@
+require_relative 'user_sessions'
+
 # The hash of the admin password is stored in a file
 # To become admin, a client has to pass the right password
-# and gets an admin cookie in return. This cookie is used
-# to grant admin rights until explicit logout.
+# and then a admin flag is set for the user corresponding
+# to the id_token in the clients cookies.
 module Authorization
-  @@password_path = File.join(Rails.root, 'config', '.admin_password')
+  include UserSessions
+
+  PASSWORD_PATH = File.join(Rails.root, 'config', '.admin_password')
 
   def redirect_non_admin
     unless admin?
@@ -19,40 +23,36 @@ module Authorization
     end
   end
 
-  # all state like @admin is wiped for every request
+  # all state like @is_admin is wiped for every request
   # that is why we have to get the current user from the db.
   def admin?
-    return true unless @admin.nil?
+    return true if @is_admin
 
-    admin_token = cookies[:admin_token]
-    return false if admin_token.blank?
-
-    @admin ||= Admin.find_by_admin_token(admin_token)
-    !@admin.nil?
+    user = get_current_user
+    @is_admin = user.is_admin
   end
 
   def make_admin!
-    admin = Admin.new
-    admin.ip = request.remote_ip if defined? request.remote_ip
-    cookies[:admin_token] = { value: admin.admin_token,
-                              expires: 1.week.from_now }
-    admin.save
-    @admin = admin
+    user = get_current_user
+    user.admin_login_ip = request.remote_ip if defined? request.remote_ip
+    user.is_admin = true
+    user.save
+    @is_admin = true
   end
 
   def delete_admin
-    @admin = nil
-    admin_token = cookies[:admin_token]
-    admin = Admin.find_by(:admin_token, admin_token)
-    admin.destroy unless admin.nil?
-    cookies.delete(:admin_token)
+    @is_admin = false
+    user = get_current_user
+    user.admin_login_ip = nil
+    user.is_admin = false
+    user.save
   end
 
   def check_password(password, check_bruteforce = true)
     return false if check_bruteforce && is_bruteforce_attack
     return false unless password_file_exists?
 
-    admin_hash = File.read(@@password_path).strip
+    admin_hash = File.read(PASSWORD_PATH).strip
     correct = (admin_hash == password_hash(password))
 
     @alarm_level = 0 if correct
@@ -60,14 +60,14 @@ module Authorization
   end
 
   def set_password!(password)
-    return if File.exist? @@password_path
-    password_file = File.new @@password_path, 'w'
+    return if File.exist? PASSWORD_PATH
+    password_file = File.new PASSWORD_PATH, 'w'
     password_file.puts(password_hash(password))
     password_file.close
   end
 
   def password_file_exists?
-    File.exist? @@password_path
+    File.exist? PASSWORD_PATH
   end
 
   private
@@ -76,11 +76,11 @@ module Authorization
       if last_attempt_too_recent
         @alarm_level += 1
         @last_attempt = Time.now
-        return true
+        true
       else
         @last_attempt = Time.now
         @alarm_level = 0
-        return false
+        false
       end
     end
 

@@ -36,9 +36,10 @@ class PrivateMessagesControllerTest < ActionController::TestCase
     name = 'person'
     message = 'test message'
 
-    @controller.make_admin!
-    PrivateMessage.create( name: name, message: message)
-    get :index
+    @controller.stub(:admin?, true) do
+      PrivateMessage.create( name: name, message: message)
+      get :index
+    end
     assert_select 'span', name
     assert_select 'p', message
   end
@@ -48,15 +49,16 @@ class PrivateMessagesControllerTest < ActionController::TestCase
     assert_redirected_to root_path
   end
 
-  test 'destroy message for admin' do
-    @controller.make_admin!
-    name = 'person'
-    post :create, private_message: { name: name, message: 'to delete'}
-    message = PrivateMessage.find_by_name(name)
+  test 'archive message for admin' do
+    @controller.stub(:admin?, true) do
+      name = 'person'
+      post :create, private_message: { name: name, message: 'to delete'}
+      message = PrivateMessage.find_by_name(name)
 
-    patch :update, id: message.id
+      patch :update, id: message.id
 
-    assert PrivateMessage.find_by_name(name).archived?
+      assert PrivateMessage.find_by_name(name).archived?
+    end
   end
 
   test 'destroy message for non admin' do

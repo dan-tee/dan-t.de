@@ -1,7 +1,7 @@
 # an admin in the sense of this controller is a client that
 # has successfully registered as admin
 
-class AdminsController < ApplicationController
+class AdminSessionsController < ApplicationController
   before_action :redirect_non_admin,    only: :destroy
   before_action :redirect_admin,        only: :new, create:
 
