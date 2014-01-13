@@ -1,5 +1,6 @@
 $brand-primary: #2D3E6E;
-$content-width: 600px;
+$slim-content-width: 600px;
+$wide-content-width: 1000px;
 
 body {
   background-color: #fff;
@@ -17,7 +18,14 @@ main {
 
   margin-left: auto;
   margin-right: auto;
-  max-width: $content-width; // this is the minimum size before collapsing to one column
+}
+
+main.slim{
+  max-width: $slim-content-width; // this is the minimum size before collapsing to one column
+}
+
+main.wide{
+  max-width: $wide-content-width; // this is the minimum size before collapsing to one column
 }
 
 footer {

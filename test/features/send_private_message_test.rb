@@ -33,4 +33,17 @@ class SendPrivateMessageTest < Capybara::Rails::TestCase
     assert_equal name, message.name
     assert_equal text, message.message
   end
+
+  test 'Message without name' do
+    text = 'test message'
+
+    visit contact_path
+    fill_in 'Message', with: text
+    click_button 'Send'
+
+    assert_selector 'h1', { text: 'Contact me' }
+    assert_selector '.alert-danger', { text: 'not' }
+    assert_selector '.field_with_errors', { text: 'Name' }
+    assert_equal find_field('private_message_message').value, text
+  end
 end

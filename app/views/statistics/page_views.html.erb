@@ -1,9 +1,9 @@
 <% provide(:title, 'Page Views')%>
 <% provide(:is_admin, @is_admin) %>
+<% provide(:width, 'wide')%>
 
 <div id="page-views">
     <h1>Page Views</h1>
-
     <%= paginate @page_views %>
     <table>
         <tr>

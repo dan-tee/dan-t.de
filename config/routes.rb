@@ -1,6 +1,4 @@
 DanTDe::Application.routes.draw do
-  get "statistics/page_views"
-  get "statistics/aggregated_per_user"
   root 'main_pages#home'
 
   resources :private_messages,  only: [:create, :index, :update]
@@ -14,6 +12,9 @@ DanTDe::Application.routes.draw do
   get 'login' => 'admin_sessions#new'
   match 'logout' => 'admin_sessions#destroy', via: 'delete'
   match 'login', to: 'admin_sessions#create', via: 'post'
+
+  get 'statistics/page_views'
+  get 'statistics/aggregated_per_user'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

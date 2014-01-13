@@ -1,14 +1,20 @@
-require "test_helper"
+require 'test_helper'
 
 class StatisticsControllerTest < ActionController::TestCase
-  test "should get page_views" do
+  test 'get page_views for non admin' do
     get :page_views
-    assert_response :success
+    assert_redirected_to root_path
   end
 
-  test "should get aggregated_per_user" do
+  test '@page_views for get by admin' do
+    @controller.stub(:admin?, true) do
+      get :page_views
+    end
+    assert_not_nil assigns(:page_views)
+  end
+
+  test 'should get aggregated_per_user' do
     get :aggregated_per_user
-    assert_response :success
+    assert_redirected_to root_path
   end
-
 end

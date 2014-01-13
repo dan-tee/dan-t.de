@@ -1,6 +1,5 @@
 require 'test_helper'
 require 'support/session_helper'
-require_relative '../../app/controllers/support/authorization'
 
 class NavigationTest < Capybara::Rails::TestCase
   include SessionHelper
@@ -46,9 +45,9 @@ class NavigationTest < Capybara::Rails::TestCase
   end
 
   test 'admin link for admins' do
-      login!
-      visit root_path
-      page.assert_selector('li', text: 'Admin', visible: true)
+    login!
+    visit root_path
+    page.assert_selector('li', text: 'Admin', visible: true)
   end
 
   test 'admin link for non admins' do

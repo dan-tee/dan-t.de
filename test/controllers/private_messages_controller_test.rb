@@ -22,14 +22,14 @@ class PrivateMessagesControllerTest < ActionController::TestCase
     text = 'hello bla bla'
     post :create, private_message: { message: text}
     assert_nil PrivateMessage.find_by_message(text)
-    assert_redirected_to contact_path
+    assert_select 'title', 'Contact'
   end
 
   test 'create message without text' do
     name = 'person'
     post :create, private_message: { name: name }
     assert_nil PrivateMessage.find_by_name(name)
-    assert_redirected_to contact_path
+    assert_select 'title', 'Contact'
   end
 
   test 'show messages for admin' do

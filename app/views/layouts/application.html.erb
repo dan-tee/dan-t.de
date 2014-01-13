@@ -17,7 +17,7 @@
 
 <%= render 'layouts/navigation_header' %>
 
-<main class="container">
+<main class="container <%= yield(:width) %>">
 
     <%= yield %>
 

@@ -1,5 +1,6 @@
 <% provide(:title, 'Private Messages')%>
 <% provide(:is_admin, @is_admin) %>
+<% provide(:width, 'slim')%>
 
 <div id="message-view">
 
@@ -10,7 +11,7 @@
      <% @messages.each do |message| %>
         <span class="name"> <%= message.name %> </span>
         <span class="email"> <%=message.email %> </span>
-        <%= button_to private_message_path(message), method: :patch, class: 'btn-xs' do %>
+        <%= button_to private_message_path(message), method: :put, class: 'btn-xs' do %>
             <span class="glyphicon glyphicon-trash"></span>
         <% end %>
         <span class="time-ago"> <%=time_ago_in_words(message.created_at) %> ago </span>
