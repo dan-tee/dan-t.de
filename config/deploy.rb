@@ -17,7 +17,7 @@ set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rben
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all # default value
 
-set I18n.enforce_available_locales, true
+set I18n.enforce_available_locales, false
 
 # set :format, :pretty
 # set :log_level, :debug
@@ -35,6 +35,8 @@ namespace :deploy do
   before :deploy, :git_push
 
   after 'deploy:updating', 'link_database_config'
+  after 'deploy:updating', 'link_dot_secret'
+  after 'deploy:updating', 'link_admin_password_file'
   after :finishing, 'deploy:cleanup'
 
   desc 'Restart application'

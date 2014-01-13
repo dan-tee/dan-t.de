@@ -28,7 +28,7 @@ end
 private
   def link_file(link_path, file_path, raise = true)
     if test("[ -f #{file_path} ]", nil)
-      execute "ln -nfs #{file_path} #{link_path}"
+        execute "ln -nfs #{file_path} #{link_path}"
     elsif raise
       raise "Shared config file #{file_path} does not exist"
     end
