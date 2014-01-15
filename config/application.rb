@@ -25,5 +25,7 @@ module DanTDe
     config.generators do |g|
       g.test_framework :mini_test
     end
+
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
 end
