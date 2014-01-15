@@ -19,6 +19,10 @@
     font-weight: bolder;
   }
 
+  tr:nth-of-type(even) {
+    background-color:$light-table-grey;
+  }
+
   th {
     border-bottom: 1px solid;
     padding-right: 10px;
