@@ -1,0 +1,31 @@
+#aggregated-views {
+  font-size: 14px;
+
+  h1 {
+    margin-left: 0;
+    margin-bottom: 40px;
+  }
+
+  .pagination {
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+
+  a{
+      color: $brand-primary;
+  }
+
+  .current{
+    color: $brand-primary;
+    font-weight: bolder;
+  }
+
+  th {
+    border-bottom: 1px solid;
+    padding-right: 10px;
+  }
+
+  td {
+    padding-right: 10px;
+  }
+}

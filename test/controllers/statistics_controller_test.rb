@@ -13,8 +13,15 @@ class StatisticsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:page_views)
   end
 
-  test 'should get aggregated_per_user' do
+  test 'get aggregated_per_user for non admin' do
     get :aggregated_per_user
     assert_redirected_to root_path
+  end
+
+  test 'assigns for get by admin' do
+    @controller.stub(:admin?, true) do
+      get :aggregated_per_user
+    end
+    assert_not_nil assigns(:users_and_pages_hash)
   end
 end

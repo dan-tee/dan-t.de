@@ -1,2 +1,37 @@
-<h1>Statistics#aggregated_per_user</h1>
-<p>Find me in app/views/statistics/aggregated_per_user.html.erb</p>
+<% provide(:title, 'Aggregated Page Views')%>
+<% provide(:is_admin, @is_admin) %>
+<% provide(:width, 'slim')%>
+
+<div id="aggregated-views">
+    <h1>Aggregated Page Views</h1>
+    <%= paginate @users_and_pages_hash %>
+    <table>
+        <thead>
+            <tr>
+                <th> User Id </th>
+                <th> Home </th>
+                <th> CV </th>
+                <th> Contact </th>
+                <th> Discuss </th>
+                <th> Login </th>
+                <th> Admin Pages </th>
+                <th> All Pages </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @users_and_pages_hash.each do |user, views| %>
+                <tr>
+                    <td> <%= user %> </td>
+                    <td> <%= views[root_path] %> </td>
+                    <td> <%= views[cv_path] %> </td>
+                    <td> <%= views[contact_path] %> </td>
+                    <td> <%= views[discuss_path] %> </td>
+                    <td> <%= views[login_path] %> </td>
+                    <td> <%= views['admin_pages'] %> </td>
+                    <td> <%= views['all'] %> </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <%= paginate @users_and_pages_hash %>
+</div>

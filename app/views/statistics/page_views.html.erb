@@ -6,25 +6,29 @@
     <h1>Page Views</h1>
     <%= paginate @page_views %>
     <table>
-        <tr>
-            <th> View number </th>
-            <th> Viewed at </th>
-            <th> User Id </th>
-            <th> Page </th>
-            <th> Method </th>
-            <th> Format </th>
-        </tr>
-
-        <% @page_views.each do |view| %>
+        <thead>
             <tr>
-                <td> <%= view.id %> </td>
-                <td> <%=time_ago_in_words(view.created_at) %> </td>
-                <td> <%= view.user_id %> </td>
-                <td> <%= view.page %> </td>
-                <td> <%= view.method %> </td>
-                <td> <%= view.format %> </td>
+                <th> View number </th>
+                <th> Viewed at </th>
+                <th> User Id </th>
+                <th> Page </th>
+                <th> Method </th>
+                <th> Format </th>
             </tr>
-        <% end %>
+        </thead>
+
+        <tbody>
+            <% @page_views.each do |view| %>
+                <tr>
+                    <td> <%= view.id %> </td>
+                    <td> <%=time_ago_in_words(view.created_at) %> </td>
+                    <td> <%= view.user_id %> </td>
+                    <td> <%= view.page %> </td>
+                    <td> <%= view.method %> </td>
+                    <td> <%= view.format %> </td>
+                </tr>
+            <% end %>
+        </tbody>
     </table>
     <%= paginate @page_views %>
 </div>
