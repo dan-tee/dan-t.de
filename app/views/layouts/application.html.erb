@@ -16,7 +16,7 @@
         // Add a script element as a child of the body
         function downloadJSAtOnload() {
             var element = document.createElement("script");
-            element.src = "assets/application.js";
+            element.src = "<%= asset_path('application.js') %>";
             document.body.appendChild(element);
         }
 
