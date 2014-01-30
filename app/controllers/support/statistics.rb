@@ -4,6 +4,10 @@ module Statistics
   def capture_statistics!
     if cookies[:user_token]
       user = get_current_user
+      # hack for charlotte
+      if user.id == 57
+          flash.now[:success] = 'Good to see you again, secret admirer! This time please leave me a way to contact you.'
+      end
     else
       user = create_user!
       user
