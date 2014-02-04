@@ -6,7 +6,7 @@ module Statistics
       user = get_current_user
       # hack for charlotte
       if user.id == 57
-          flash.now[:success] = 'Good to see you again, secret admirer! This time please leave me a way to contact you.'
+          flash.now[:success] = 'Greetings not so secret admirer. A pleasure to see you again.'
       end
     else
       user = create_user!
