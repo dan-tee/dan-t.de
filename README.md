@@ -1,7 +1,7 @@
 dan-t.de
 ========
 
-This is my private home page. I created it as a project to learn Rails.
+This is my private home page. I created it as a project to learn Rails. This is not the best way to create a simple homen page. Use a [CMS](http://de.wikipedia.org/wiki/Content-Management-System) for that. 
 
 If you are a Rails beginner, feel free to copy any features you like. I tried to stick to Rails best practices, so take this as an example of how things can be done in Rails.
 
