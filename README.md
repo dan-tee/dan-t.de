@@ -10,10 +10,10 @@ If you are a Rails pro and for whatever reason read my code, please let me know 
 Installation
 ============
 
-Deployment is done using Capistrano.
+Deployment is done using Capistrano. Check out the GitHub repo and update the ./config/deploy.rb with the paths for your deployment. 
 
-On first deploy you have to create a database.yml file containing your DB configuration and place in in the shared folder of the deployment.
+On first deploy you have to create a database.yml (compare to database.exampe.yml) file containing your DB configuration and place in in the shared folder of the deployment.
 
 To set an admin password visit [domian]/password/new .
 
-To keep the secret\_token and the password constant for the next deployments, copy the .secret and .admin\_password from the apps config folder to ../../shared/config.
+To keep the secret\_token and the password constant for the next deployments, move the .secret and .admin\_password from the apps config folder to ../../shared/config.
