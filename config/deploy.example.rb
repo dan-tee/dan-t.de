@@ -3,13 +3,17 @@ set :application, 'dan-t.de'
 # remote repository name
 set :repository, 'origin'
 # repository url
-set :repo_url, '/usr/local/share/git/dan-t.de.git'
+set :repo_url, 'git@github.com:Dan-Tee/dan-t.de.git'
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 set :deploy_to, '/usr/local/share/dan-t.de'
 set :scm, :git
 set :git_shallow_clone, 1
+
+#set :ssh_options, {
+#    port: 2345
+#}
 
 set :rbenv_type, :user # or :system, depends on your rbenv setup
 set :rbenv_ruby, '2.0.0-p247'
