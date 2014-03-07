@@ -10,9 +10,11 @@ If you are a Rails pro and for whatever reason read my code, please let me know 
 Installation
 ============
 
-Deployment is done using Capistrano. Check out the GitHub repo and update the ./config/deploy.rb with the paths for your deployment. 
+Deployment is done using Capistrano.
 
-On first deploy you have to create a database.yml (compare to database.exampe.yml) file containing your DB configuration and place in in the shared folder of the deployment.
+Before you deploy you have to create a ./config/deploy.rb (compare to deploy.exampe.rb) with the paths for your deployment.
+
+After first deploy you have to create a database.yml (compare to database.exampe.yml) file containing your DB configuration and place in in the shared folder of the deployment.
 
 To set an admin password visit [domian]/password/new .
 
