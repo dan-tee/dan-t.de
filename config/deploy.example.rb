@@ -11,10 +11,6 @@ set :deploy_to, '/usr/local/share/dan-t.de'
 set :scm, :git
 set :git_shallow_clone, 1
 
-#set :ssh_options, {
-#    port: 2345
-#}
-
 set :rbenv_type, :user # or :system, depends on your rbenv setup
 set :rbenv_ruby, '2.0.0-p247'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} /usr/bin/rbenv exec"
