@@ -2,7 +2,7 @@
 <% provide(:title, 'CV')%>
 <% provide(:width, 'slim')%>
 
-<div id="about-main">
+<div id="cv-main">
     <%= render 'about_me' %>
 
     <h2>
@@ -13,15 +13,16 @@
             <td><span class="caret"></span></td>
             <td>Programming</td>
             <td>
-                C#, SQL, Java, Ruby on Rails
+                C#, SQL, Java, JavaScript, Ruby on Rails
 
                 <div id="collapse-proggen" class="collapse">
                     <hr/>
                     <p>
-                        4 years experience in C#<br/>
-                        3 years experience in SQL<br/>
-                        2 years experience in Java<br/>
-                        3 months experience in Ruby on Rails
+                        4 years experience in C#<br>
+                        3 years experience in SQL<br>
+                        1 year experience in Java<br/>
+                        3 months experience in JavaScript<br>
+                        3 months experience using Ruby on Rails
                     </p>
                 </div>
             </td>
@@ -35,7 +36,7 @@
                 <div id="collapse-processes" class="collapse">
                     <hr/>
                     <p>
-                        1 year experience in Scrum-like teams<br/>
+                        1 year experience in Scrum-like teams<br>
                         NUnit, Unit:Test, Subversion, Git, Jira
                     </p>
                 </div>
@@ -47,16 +48,18 @@
             <td>Financial Mathematics</td>
             <td>
                 Value at Risk, Stochastic Modelling of Market Prices, Pricing
-                <div id="collapse-financial" class="collapse">
-                    <hr/>
-                    <p>
-                        I worked for 2 years with a Normal-Variance-Covariance
-                        model for VaR calculation.<br/>
-                        Analyzed the model errors resulting from non normal
-                        price distributions.<br/>
-                        Black-Scholes and Bond-Pricing
-                    </p>
-                </div>
+            </td>
+        </tr>
+        <tr id="collapse-financial" class="collapse">
+            <td></td>
+            <td colspan="2">
+                <p>
+                    I worked for 2 years with a Normal-Variance-Covariance
+                    model for VaR calculation.<br>
+                    The job included analyzing the model errors resulting from non normal
+                    price distributions.<br>
+                    I learnt about the Black-Scholes model and Bond-Pricing.
+                </p>
             </td>
         </tr>
 
@@ -65,22 +68,63 @@
             <td>System Administration</td>
             <td>
                 MS SQL Server, Apache, Linux, MariaDB
-                <div id="collapse-admin" class="collapse">
-                    <hr/>
-                    <p>
-                        I administered a production setup of a MS SQL Server
-                        containing daily pricing data for more than ten thousand
-                        financial instruments. On top of that I maintained
-                        application servers, which hosted
-                        Windows services for VaR-calculation. <br/>
-                        I run my own Apache Server on a Linux system which hosts
-                        this site and various services for myself.
-                    </p>
-                </div>
+            </td>
+        </tr>
+        <tr id="collapse-admin" class="collapse">
+            <td></td>
+            <td colspan="2">
+                <p>
+                    I administered a production setup of a MS SQL server
+                    containing daily pricing data for more than ten thousand
+                    financial instruments.<br>
+                    On top of that I maintained application servers, which hosted
+                    Windows services for VaR-calculation. <br>
+                    I run my own Apache server on a Linux system which hosts
+                    this site, an Owncloud instance, a private Wiki and some
+                    smaller services.
+                </p>
             </td>
         </tr>
     </table>
-
+<!--------------------------------------------------------------------------------------->
+    <h2>
+        Projects
+    </h2>
+    <table class="table table-hover">
+        <tr data-toggle="collapse" data-target="#collapse-bullet_map">
+            <td><span class="caret"></span></td>
+            <td>Bullet Map</td>
+            <td>For Amnesty International</td>
+            <td><a href="https://github.com/Dan-Tee/BulletMap">GitHub</a></td>
+        </tr>
+        <tr id="collapse-bullet_map" class="collapse">
+            <td></td>
+            <td colspan="3">
+                <p>
+                    Bullet Map started with an idea from Amnesty International on the
+                    Hack4Good Hackathon 0.5 in Berlin and won the first prize there.<br><br>
+                    Bullet Map aims to shed light on global arms trade. On every lawfully
+                    produced bullet shell, there is an identification code of the bullet
+                    origin engraved, the so-called headstamp.<br><br>
+                    Bullet Map shows the information associated with a headstamp and allows
+                    people to upload their findings. The findings are shown on a map to
+                    give an overview where the bullets used in a conflict region are coming
+                    from.
+                </p>
+                <div id="bullet-map-screenshots">
+                    <%= image_tag 'bullet_map_landing.png', {class: 'bullet-map'} %>
+                    <%= image_tag 'bullet_map_post.png', {class: 'bullet-map'} %>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>dan-t.de</td>
+            <td>For myself</td>
+            <td><a href="https://github.com/Dan-Tee/dan-t.de">GitHub</a></td>
+        </tr>
+    </table>
+<!--------------------------------------------------------------------------------------->
     <h2>
         Work Experience
     </h2>
@@ -91,15 +135,17 @@
             <td>2&nbsp;years</td>
             <td>
                 ION Trading GmbH
-                <div id="collapse-ion" class="collapse">
-                    <hr/>
-                    <p>
-                        Worked in the Pricing department on a distributed real-time
-                        trading system. Developed C# plugins for a pluggable GUI
-                        infrastructure. Enhanced the multi-threaded JAVA pricing server
-                        in an agile team.
-                    </p>
-                </div>
+            </td>
+        </tr>
+        <tr id="collapse-ion" class="collapse">
+            <td></td>
+            <td colspan="3">
+                <p>
+                    Worked in the Pricing department on a distributed real-time
+                    trading system. Developed C# plugins for a pluggable GUI
+                    infrastructure. Enhanced the multi-threaded JAVA pricing server
+                    in an agile team.
+                </p>
             </td>
         </tr>
 
@@ -109,16 +155,18 @@
             <td>2&nbsp;years</td>
             <td>
                 Landesbank Berlin
-                <div id="collapse-lbb" class="collapse">
-                    <hr/>
-                    <p>
-                        Member of the Methods Team of the Controlling department.
-                        Developed C# libraries and designed the SQL database for the
-                        calculation of Value at Risk numbers. Analysed and improved
-                        the stochastic market risk model in response to the financial
-                        crisis.
-                    </p>
-                </div>
+            </td>
+        </tr>
+        <tr id="collapse-lbb" class="collapse">
+            <td></td>
+            <td colspan="3">
+                <p>
+                    Member of the Methods Team of the Controlling department.
+                    Developed C# libraries and designed the SQL database for the
+                    calculation of Value at Risk numbers. Analysed and improved
+                    the stochastic market risk model in response to the financial
+                    crisis.
+                </p>
             </td>
         </tr>
 
@@ -128,15 +176,17 @@
             <td>1&nbsp;year</td>
             <td>
                 Landesbank Berlin for DIS AG
-                <div id="collapse-dis" class="collapse">
-                    <hr/>
-                    <p>
-                        Worked for Landesbank Berlin AG in the Risk and Controlling
-                        department's Reporting Team. Analysed profit and
-                        market risk numbers on a daily basis using MS SQL Server
-                        and MS Access Forms that called in-house libraries.
-                    </p>
-                </div>
+            </td>
+        </tr>
+        <tr id="collapse-dis" class="collapse">
+            <td></td>
+            <td colspan="3">
+                <p>
+                    Worked for Landesbank Berlin AG in the Risk and Controlling
+                    department's Reporting Team. Analysed profit and
+                    market risk numbers on a daily basis using MS SQL Server
+                    and MS Access Forms that called in-house libraries.
+                </p>
             </td>
         </tr>
 
@@ -155,7 +205,7 @@
             </td>
         </tr>
     </table>
-
+<!--------------------------------------------------------------------------------------->
     <h2>
         Education
     </h2>

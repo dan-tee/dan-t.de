@@ -1,4 +1,4 @@
-#about-main {
+#cv-main {
   #portrait {
     margin-top: 10px;
     img{
@@ -39,5 +39,16 @@
 
   hr {
     margin: 10px;
+  }
+  p {
+    font-size: 14px;
+  }
+
+  #bullet-map-screenshots{
+    margin-top: 20px;
+
+    img {
+      width: 250px;
+    }
   }
 }
